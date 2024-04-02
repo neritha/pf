@@ -1,0 +1,117 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+import ContactCTA from '../components/ContactCTA.astro';
+import Hero from '../components/Hero.astro';
+---
+
+<BaseLayout title="Profil | Victoria Carré" description="Profil de Victoria Carré">
+	<div class="stack gap-20">
+		<main class="wrapper about">
+			<Hero
+				title="Le BTS SIO"
+				tagline="Découvrez mon BTS"
+			>
+				<img
+					width="680"
+					height="447"
+					src="/assets/imageBts.jpg"
+					alt="illustration bts"
+				/>
+			</Hero>
+
+			<section>
+				<h2 class="section-title">Qu'est-ce que le BTS SIO ?</h2>
+				<div class="content">
+					<p>
+						Le BTS SIO, service informatiques aux organisations, est un cursus de deux ans axé sur les technologies de l'information et de la communication. Il prépare les étudiants à devenir des professionnels compétents et opérationnels, capables de répondre aux besoins informatiques des entreprises.
+					</p>
+				</div>
+			</section>
+			<section>
+				<h2 class="section-title">Deux options</h2>
+				<div class="content">
+					<p>Le BTS SIO propose deux options complémentaires, offrant aux étudiants la possibilité de se spécialiser selon leurs affinités :</p>
+					<ul>
+						<li>SISR (Solutions d'Infrastructure, Systèmes et Réseaux) : Cette option forme des techniciens spécialisés dans la gestion et la maintenance des infrastructures informatiques, des réseaux, et des services associés.</li>
+						<li>SLAM (Solutions Logicielles et Applications Métiers) : Cette option prépare les étudiants à concevoir, développer et maintenir des applications informatiques adaptées aux besoins spécifiques des organisations.</li>
+					</ul>
+				</div>
+			</section>
+			<section>
+				<h2 class="section-title">Un programme pédagogique complet</h2>
+				<div class="content">
+					<p>Le programme du BTS SIO couvre un large éventail de compétences techniques et transversales, telles que la programmation, l'administration système, la gestion de projet, la sécurité informatique, la conception de bases de données, et bien plus encore. Les étudiants bénéficient également de périodes de stage en entreprise pour mettre en pratique leurs connaissances dans un contexte professionnel réel.</p>
+				</div>
+			</section>		
+			
+			<section>
+				<h2 class="section-title">Lien</h2>
+				<div class="content">
+					<p><a href="https://www.reseaucerta.org/sio2019/accueil" target="_blank">Site sur le BTS SIO pour en savoir plus !</a></p>
+				</div>
+			</section>	
+
+		</main>
+
+		<ContactCTA />
+	</div>
+</BaseLayout>
+
+<style>
+	.about {
+		display: flex;
+		flex-direction: column;
+		gap: 3.5rem;
+	}
+
+	img {
+		margin-top: 1.5rem;
+		border-radius: 1.5rem;
+		box-shadow: var(--shadow-md);
+	}
+
+	section {
+		display: flex;
+		flex-direction: column;
+		gap: 0.5rem;
+		color: var(--gray-200);
+	}
+
+	.section-title {
+		grid-column-start: 1;
+		font-size: var(--text-xl);
+		color: var(--gray-0);
+	}
+
+	.content {
+		grid-column: 2 / 4;
+	}
+
+	.content :global(a) {
+		text-decoration: 1px solid underline transparent;
+		text-underline-offset: 0.25em;
+		transition: text-decoration-color var(--theme-transition);
+	}
+
+	.content :global(a:hover),
+	.content :global(a:focus) {
+		text-decoration-color: currentColor;
+	}
+
+	@media (min-width: 50em) {
+		.about {
+			display: grid;
+			grid-template-columns: 1fr 60% 1fr;
+		}
+
+		.about > :global(:first-child) {
+			grid-column-start: 2;
+		}
+
+		section {
+			display: contents;
+			font-size: var(--text-lg);
+		}
+	}
+</style>
